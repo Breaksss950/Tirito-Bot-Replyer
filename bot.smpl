@@ -1,0 +1,16 @@
+import discord
+import env
+
+token = env.get("DISCORD_TOKEN")
+
+bot = discord.Bot(token)
+
+function on_message(msg)
+    if msg.author.bot
+        return
+    if msg.guild.id != 1112009067808964721
+        return
+    msg.add_reaction("<:emoji:1472007413874819226>")
+
+bot.on("message_create", on_message)
+bot.start()
